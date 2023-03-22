@@ -6,7 +6,19 @@ const fabObj = require("./mathLogic");
 
 var app = express();
 if (cluster.isMaster) {
-  console.log("in master, total number of cpus are", totalCpus);
+
+  const worker1 = require('child_process').fork('./workers/worker1')
+  const worker2 = require('child_process').fork('./workers/worker2')
+
+
+worker1.on('message',(number)=>{
+  console.log("at worker one"+number)
+})
+
+worker2.on('message',(number)=>{
+  console.log("at worker TWo"+number)
+})
+
   for (var i = 0; i < totalCpus; i++) {
     cluster.fork();
   }

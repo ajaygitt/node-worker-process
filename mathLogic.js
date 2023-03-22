@@ -1,22 +1,6 @@
-class FibonacciSeries {
-    constructor() {
+module.exports ={
 
-    }
-    calculateFibonacciValue(number) {
-        var s = 0;
-        var returnValue;
-
-        if (number == 0) {
-            return (s);
-        }
-        if (number == 1) {
-            s += 1;
-            return (s);
-        }
-        else {
-            return (this.calculateFibonacciValue(number - 1) + this.calculateFibonacciValue(number - 2));
-        }
+    calculateSum: (a,b)=> {
+        return a+b;
     }
 }
-
-module.exports = new FibonacciSeries();
